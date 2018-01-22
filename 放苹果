@@ -1,0 +1,43 @@
+   # 题目描述
+   # 把M个同样的苹果放在N个同样的盘子里，允许有的盘子空着不放，问共有多少种不同的分法？（用K表示）5，1，1和1，5，1 是同一种分法。
+   
+  #思路解析
+递归思想：f(m,n)可以分成两种情况：
+1.有一个盘子是空的（这里为什么要说是一个盘子而不是至少一个呢？因为至少一个已经包含在内了，递归实现），此时为f(m,n-1)；
+2.没有空盘子，此时每个盘子至少有一个苹果，则为f(m-n,n)；
+已知条件：
+1.苹果数量小于0放置方式为0；
+2.苹果数量为0/1或者盘子数量为1时放置方式为1；（之前我也是觉得m=0时应该是为0，后来想了想，如果是m(2,2)的话结果应该为2，而m(2,2)=m(2,1)+m(0,2)，前者值为1，后者如果为0的话就不正确了，所以当m为0的时候应该是为1的）
+3.其余情况使用递归
+
+
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+#include<vector>
+#include<set>
+#include<sstream>
+#include<string>
+using namespace std;
+
+int f(int x,int y){
+    if(x==1||y==1)
+        return 1;
+    if(x==0)
+        return 1;
+    if(x<0)
+        return 0;
+    else
+        return f(x-y,y)+f(x,y-1);
+}
+
+int main(){
+    int m,n;
+    while(cin>>m>>n){
+       //     f(m,n)=f(m-n,n)+f(m,n-1);
+            cout<<f(m,n)<<endl;
+        }
+
+     return 0;
+
+ }
