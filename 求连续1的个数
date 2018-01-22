@@ -1,0 +1,64 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+#include<vector>
+#include<set>
+#include<sstream>
+#include<string>
+using namespace std;
+
+int change(int x,int y){ //对数x做y进制转换
+    int m,n;
+ //   m=x/y;
+//    n=x%y;
+    int sum=0;
+    vector <int> a;
+   // sum=sum*10+n;
+ //  string s,s2;
+ //  stringstream s1;
+    while(x!=0){
+        n=x%y;         //想不通时，替换为10进制
+     //   s1<<n;
+   //     s1>>s2;
+    //    s=s+s2;
+       // s=s+(n-'0');    //n记录每个数
+       //sum=sum*10+n;
+       a.push_back(n);
+        x=x/y;
+
+    }
+    for(int i=a.size();i>0;i--){
+    //    cout<<a[i-1]<<" ";
+        sum=sum*10+a[i-1];
+    }
+    cout<<sum<<endl;
+    return sum;
+}
+ int main(){
+   int n;
+   string s;
+   stringstream stream;
+   while(cin>>n)
+{
+    int y=change(n,2);
+   // cout<<y<<endl;
+    stream<<y;
+    stream>>s;
+   // cout<<s<<endl;
+    stream.clear();
+    int num=0,max_num=0;
+    for(int i=0;i<s.length();i++){
+    if(s[i]=='1')
+     {
+        num++;
+        if(max_num<num)
+            max_num=num;
+     }
+    else
+        num=0;
+    }
+    cout<<max_num<<endl;
+}
+     return 0;
+
+ }
