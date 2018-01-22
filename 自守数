@@ -1,0 +1,37 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+#include<vector>
+#include<set>
+using namespace std;
+
+
+int count_zero(int n){
+   // int i=0;
+    int y=1;
+    while(n>0){
+        n=n/10;
+ //       i++;
+        y=y*10;
+    }
+    return y;
+}
+ int main(){
+   int n;
+   while(cin>>n){
+        int num=0;
+    for(int i=1;i<=n;i++){
+        int m=i*i-i;
+       int y=count_zero(i);
+        if(m%y==0)
+           {
+             num++;
+            cout<<i<<endl;
+           }
+
+    }
+   cout<<num<<endl;
+   }
+
+     return 0;
+ }
