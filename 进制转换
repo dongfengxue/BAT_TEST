@@ -12,3 +12,23 @@ int change(int x,int y){ //对数x做y进制转换
     }
     return sum/10;
 }
+
+
+
+
+int change(int x,int y){ //对数x做y进制转换,转换后输出
+    int m,n;
+    int sum=0;
+    vector <int> a;
+    while(x!=0){
+        n=x%y;         //想不通时，替换为10进制
+       a.push_back(n);
+        x=x/y;
+    }
+    for(int i=a.size();i>0;i--){
+    //    cout<<a[i-1]<<" ";
+        sum=sum*10+a[i-1];
+    }
+    cout<<sum<<endl;
+    return sum;
+}
