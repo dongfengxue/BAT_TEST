@@ -3,10 +3,10 @@ int change(int x,int y){ //对数x做y进制转换
     m=x/y;
     n=x%y;
     int sum=0;
-    sum=sum+n;
+    sum=sum*10+n;
     while(m!=0){
         n=m%y;         //想不通时，替换为10进制
-        sum=sum+n;    //n记录每个数
+        sum=sum*10+n;    //n记录每个数
         m=m/y;
         
     }
